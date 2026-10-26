@@ -1,0 +1,61 @@
+<div id="screen-moderator" class="screen">
+  <div class="mod-wrap">
+
+    <!-- Üst bar -->
+    <div class="mod-topbar">
+      <span>SafeSpeak — Moderatorpaneel</span>
+      <div class="mod-topbar-r">
+        <button class="mod-topbar-btn" onclick="modGaDocentAanmaken()"><i class="fas fa-plus" style="color:#fff;margin-right:5px;"></i>Docent aanmaken</button>
+        <a onclick="doLogout()" title="Uitloggen"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="mod-tabs">
+      <button class="mod-tab active" data-tab="pending" onclick="modTabSwitch(this)">Wachtend <span id="wachtend-badge" class="kv-badge" style="display:none;">0</span></button>
+      <button class="mod-tab" data-tab="processed" onclick="modTabSwitch(this)">Afgehandeld</button>
+      <button class="mod-tab" data-tab="klasverzoeken" onclick="modTabSwitch(this)">Klasverzoeken <span id="kv-badge" class="kv-badge" style="display:none;">0</span></button>
+    </div>
+
+    <!-- Body: inbox links, detail rechts -->
+    <div class="mod-body">
+      <div class="inbox-col">
+        <div class="inbox-lijst" id="mod-inbox"></div>
+      </div>
+      <div class="detail-col">
+        <div class="mod-detail-bar"><span>Detail</span></div>
+        <div class="detail-scroll" id="mod-detail">
+          <div style="text-align:center;margin:auto;color:var(--slate2);">
+            <h3>Selecteer een item</h3>
+            <p style="font-size:.85em;">Klik op een item aan de linkerkant.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="screen-docent-aanmaken" class="screen">
+  <div style="max-width:560px;margin:0 auto;padding:28px 18px;">
+    <button class="inst-terug" onclick="modTerug()">← Terug naar moderatie</button>
+    <h2 style="font-weight:700;color:var(--groen);margin-bottom:20px;">Nieuw docentaccount aanmaken</h2>
+    <div id="doc-aanmaken-err"></div>
+    <label class="form-lbl">Voornaam</label>
+    <input class="form-inp" id="da-vn" type="text" placeholder="Bijv. Geert">
+    <label class="form-lbl">Achternaam</label>
+    <input class="form-inp" id="da-an" type="text" placeholder="Bijv. Lambers">
+    <label class="form-lbl">Vak</label>
+    <input class="form-inp" id="da-vak" type="text" placeholder="Bijv. Wiskunde">
+    <label class="form-lbl">Wachtwoord</label>
+    <input class="form-inp" id="da-pw" type="password">
+    <label class="form-lbl">Klassen (klik + om toe te voegen)</label>
+    <div class="klas-toevoegen">
+      <input id="da-klas-inp" type="text" placeholder="Bijv. 5V1">
+      <button onclick="voegKlasToe()">+ Voeg toe</button>
+    </div>
+    <div id="da-klassen-chips" style="margin-bottom:12px;"></div>
+    <div id="da-res"></div>
+    <button class="btn btn-groen" style="margin-top:8px;" onclick="maakDocentAan()">Account aanmaken</button>
+  </div>
+</div>
