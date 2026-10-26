@@ -1,0 +1,70 @@
+<div id="screen-login" style="display:flex;">
+ <div class="login-card">
+   <div class="login-logo"><h1>SafeSpeak</h1><p>Fioretti College Lisse</p></div>
+   <div id="login-alert"></div>
+   <div class="role-tabs">
+     <button class="role-tab active" onclick="setRol('leerling',this)">Leerling</button>
+     <button class="role-tab" onclick="setRol('moderator',this)">Moderator</button>
+     <button class="role-tab" onclick="setRol('docent',this)">Docent</button>
+   </div>
+
+
+   <!-- Inlogformulier -->
+   <div id="lf-in">
+     <label class="form-lbl" id="lbl-user">Leerlingnummer</label>
+     <input class="form-inp" id="inp-user" type="text" placeholder="">
+     <label class="form-lbl">Wachtwoord</label>
+     <input class="form-inp" id="inp-pass" type="password">
+     <button class="btn btn-groen" id="btn-inloggen" onclick="doLogin()">Inloggen</button>
+     <button class="btn btn-wit" id="btn-reg-link" onclick="toonRegistratie()" style="margin-top:9px;">Nieuw account aanmaken</button>
+   </div>
+
+
+   <!-- Registratie stap 1: persoonsgegevens -->
+   <div id="lf-reg1" style="display:none;">
+     <div class="stap-indicator">
+       <div class="stap-cirkel stap-actief" id="sc1">1</div>
+       <div class="stap-lijn"></div>
+       <div class="stap-cirkel stap-wacht" id="sc2">2</div>
+     </div>
+     <h3 style="color:var(--groen);font-weight:700;margin-bottom:16px;">Jouw gegevens</h3>
+     <label class="form-lbl">Voornaam</label>
+     <input class="form-inp" id="reg-vn" type="text" placeholder="Bijv. Emma">
+     <label class="form-lbl">Achternaam</label>
+     <input class="form-inp" id="reg-an" type="text" placeholder="Bijv. de Vries">
+     <label class="form-lbl">Leerlingnummer (6 cijfers)</label>
+     <input class="form-inp" id="reg-nr" type="text" placeholder="Bijv. 123456">
+     <label class="form-lbl">Wachtwoord</label>
+     <input class="form-inp" id="reg-pw" type="password">
+     <label class="form-lbl">Bevestig wachtwoord</label>
+     <input class="form-inp" id="reg-pw2" type="password">
+     <div id="reg1-err"></div>
+     <button class="btn btn-groen" onclick="regStap1()">Verder →</button>
+     <button class="btn btn-wit" onclick="toonInlog()" style="margin-top:8px;">Terug naar inloggen</button>
+   </div>
+
+
+   <!-- Registratie stap 2: klas kiezen -->
+   <div id="lf-reg2" style="display:none;">
+     <div class="stap-indicator">
+       <div class="stap-cirkel stap-klaar" id="sc1b"><i class="fas fa-check" style="font-size:11px;"></i></div>
+       <div class="stap-lijn" style="background:var(--groen);"></div>
+       <div class="stap-cirkel stap-actief" id="sc2b">2</div>
+     </div>
+     <h3 style="color:var(--groen);font-weight:700;margin-bottom:16px;">In welke klas zit je?</h3>
+     <label class="form-lbl">Leerjaar</label>
+     <select class="form-sel" id="reg-jaar" onchange="regUpdateNiveau()"><option value="">-- Kies --</option></select>
+     <div id="reg-wrap-niv" style="display:none;">
+       <label class="form-lbl">Niveau</label>
+       <select class="form-sel" id="reg-niv" onchange="regUpdateKlas()"><option value="">-- Kies --</option></select>
+     </div>
+     <div id="reg-wrap-klas" style="display:none;">
+       <label class="form-lbl">Klas</label>
+       <select class="form-sel" id="reg-klas"><option value="">-- Kies --</option></select>
+     </div>
+     <div id="reg2-err"></div>
+     <button class="btn btn-groen" id="btn-account-aanmaken" onclick="regStap2()">Account aanmaken</button>
+     <button class="btn btn-wit" onclick="toonReg1()" style="margin-top:8px;">← Terug</button>
+   </div>
+ </div>
+</div>
