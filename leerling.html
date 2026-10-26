@@ -1,0 +1,70 @@
+<div id="screen-leerling" class="screen">
+ <div class="ll-wrap">
+   <div class="ll-kaart">
+     <div class="ll-header"><h1>SafeSpeak</h1><p id="ll-ondertitel">Fioretti College Lisse</p></div>
+     <div id="ll-alert"></div>
+
+
+     <!-- Dashboard -->
+     <div id="lv-dash" class="lview actief">
+       <h3 style="color:var(--groen);font-weight:700;margin-bottom:4px;">Mijn overzicht</h3>
+       <p id="ll-klas-lbl" style="color:var(--slate2);font-size:13px;margin-bottom:14px;"></p>
+       <button class="btn btn-groen" style="margin-bottom:16px;" onclick="schakelLeerling('lv-docent')">+ Nieuwe feedback geven</button>
+       <div id="ll-history"></div>
+       <button class="ll-logout-btn" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> Uitloggen</button>
+     </div>
+
+
+     <!-- Feedback detail (eigen ingediende feedback) -->
+     <div id="lv-fb-detail" class="lview">
+       <h3 style="color:var(--groen);font-weight:700;margin-bottom:14px;">Mijn feedback</h3>
+       <div id="fb-detail-inhoud"></div>
+       <div id="fb-detail-res"></div>
+       <button class="btn btn-wit" style="margin-top:14px;" onclick="herlaadFeedback()">← Terug naar overzicht</button>
+     </div>
+
+     <!-- Docent kiezen -->
+     <div id="lv-docent" class="lview">
+       <h3 style="color:var(--groen);font-weight:700;margin-bottom:14px;">Kies een docent</h3>
+       <label class="form-lbl">Docent</label>
+       <select class="form-sel" id="sel-docent"><option value="">-- Kies --</option></select>
+       <button class="btn btn-groen" onclick="startVragen()">Start vragenlijst</button>
+       <button class="btn btn-wit" onclick="schakelLeerling('lv-dash')" style="margin-top:8px;">Terug</button>
+     </div>
+
+
+     <!-- Vragen -->
+     <div id="lv-vragen" class="lview">
+       <button class="inst-terug" style="margin-bottom:10px;" onclick="verlaatVragen()">← Terug</button>
+       <div id="v-prog-txt" style="font-size:13px;color:var(--slate);font-weight:500;"></div>
+       <div class="prog-wrap"><div id="v-prog-balk" class="prog-balk"></div></div>
+       <h3 id="v-vraag" style="color:var(--groen);margin-bottom:14px;"></h3>
+       <input type="range" id="v-score" min="1" max="5" value="3" oninput="updateSlider()" style="width:100%;accent-color:var(--groen);">
+       <div style="display:flex;justify-content:space-between;margin-top:11px;padding:9px;background:#f8fafc;border-radius:12px;border:1px dashed var(--rand);">
+         <div style="text-align:center;font-size:11px;font-weight:600;color:#ef4444;"><b>1</b><br>Zeer onvold.</div>
+         <div style="text-align:center;font-size:11px;font-weight:600;color:#f97316;"><b>2</b><br>Onvoldoende</div>
+         <div style="text-align:center;font-size:11px;font-weight:600;color:#eab308;"><b>3</b><br>Voldoende</div>
+         <div style="text-align:center;font-size:11px;font-weight:600;color:#4ade80;"><b>4</b><br>Goed</div>
+         <div style="text-align:center;font-size:11px;font-weight:600;color:#166534;"><b>5</b><br>Uitstekend</div>
+       </div>
+       <div id="v-slider-lbl" style="margin-top:9px;text-align:center;"></div>
+       <div id="v-toel-wrap" style="display:none;margin-top:13px;">
+         <label class="form-lbl">Toelichting (optioneel)</label>
+         <textarea class="form-inp" id="v-toel" rows="3" placeholder="Typ hier je toelichting..."></textarea>
+       </div>
+       <button class="btn btn-groen" id="v-btn-volgende" style="margin-top:13px;" onclick="volgendeVraag()">Volgende</button>
+     </div>
+
+
+     <!-- Succes -->
+     <div id="lv-succes" class="lview">
+       <div style="text-align:center;padding:28px 8px;">
+         <div style="color:var(--groen);font-size:58px;margin-bottom:13px;">✓</div>
+         <h2 style="color:var(--groen);margin-bottom:9px;font-weight:700;">Feedback opgeslagen!</h2>
+         <p id="v-succes-msg" style="color:var(--slate2);font-size:14px;"></p>
+       </div>
+       <button class="btn btn-groen" onclick="herlaadFeedback()">Terug naar mijn overzicht</button>
+     </div>
+   </div>
+ </div>
+</div>
