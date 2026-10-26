@@ -1,0 +1,45 @@
+<div id="screen-docent">
+ <div class="doc-layout">
+   <div class="doc-sidebar">
+     <div class="doc-sidebar-head">
+       <h3>SafeSpeak</h3>
+       <p id="doc-welkom-sidebar">Docentenportaal</p>
+     </div>
+     <ul class="doc-nav">
+       <li class="active" onclick="docTabSwitch('overzicht',this)">📊 Dashboard</li>
+       <li onclick="docTabSwitch('feedback',this)">💬 Feedback</li>
+     </ul>
+     <div class="doc-sidebar-foot">
+       <button class="doc-logout" onclick="doLogout()" title="Uitloggen"><i class="fas fa-sign-out-alt"></i> Uitloggen</button>
+     </div>
+   </div>
+   <div class="doc-main">
+     <div class="doc-header">
+       <h2 id="doc-paginatitel">Dashboard</h2>
+       <span id="doc-welkom-header" style="font-size:.85rem;color:var(--slate2);"></span>
+     </div>
+
+
+     <div id="doc-overzicht" class="doc-tab-content active">
+       <div class="stats-grid">
+         <div class="stat-kaart"><div class="stat-lbl">📖 Gem. Uitleg</div><div class="stat-val" id="avg-q1">–</div></div>
+         <div class="stat-kaart"><div class="stat-lbl">🎯 Gem. Uitdaging</div><div class="stat-val" id="avg-q2">–</div></div>
+         <div class="stat-kaart"><div class="stat-lbl">💡 Gem. Hulp</div><div class="stat-val" id="avg-q3">–</div></div>
+         <div class="stat-kaart"><div class="stat-lbl">👥 Totaal</div><div class="stat-val" id="avg-total">0</div></div>
+       </div>
+       <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:16px;">
+         <div class="doc-kaart"><div class="doc-kaart-titel">📈 Scores over tijd</div><div style="height:270px;"><canvas id="trendChart"></canvas></div></div>
+         <div class="doc-kaart"><div class="doc-kaart-titel">💡 Balans</div><div style="height:230px;"><canvas id="radarChart"></canvas></div></div>
+       </div>
+     </div>
+
+
+     <div id="doc-feedback" class="doc-tab-content">
+       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+         <div class="doc-kaart"><div class="doc-kaart-titel">💬 Ontvangen feedback</div><div id="doc-comments" style="max-height:480px;overflow-y:auto;"></div></div>
+         <div class="doc-kaart"><div class="doc-kaart-titel">📊 Klas- en vakoverzicht</div><div id="doc-vak-info" style="font-size:.78rem;color:var(--slate2);margin-bottom:8px;"></div><div class="tbl-wrap"><table><thead><tr><th>Klas</th><th>Vak</th><th>Aantal</th><th>Gem. Uitleg</th><th>Gem. Uitdaging</th><th>Gem. Hulp</th></tr></thead><tbody id="doc-tabel"></tbody></table></div></div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
