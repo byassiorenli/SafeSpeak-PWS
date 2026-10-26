@@ -1,0 +1,71 @@
+<div id="screen-instellingen" class="screen">
+ <div class="inst-wrap">
+   <button class="inst-terug" onclick="terugnaarScherm()">← Terug</button>
+   <h2 style="font-weight:700;margin-bottom:4px;">Instellingen & Privacy</h2>
+   <p style="color:var(--slate2);font-size:.83rem;margin-bottom:18px;">Beheer je gegevens en keuzes.</p>
+   <span class="badge-rol" id="inst-rol-badge">–</span>
+
+
+   <!-- Route A: data verwijderen (leerling) -->
+   <div class="inst-kaart" id="inst-blok-data">
+     <div class="inst-titel">🗑️ Verwijder mijn feedbackdata</div>
+     <div class="inst-omschr">Alle feedbackberichten die jij hebt ingediend worden permanent verwijderd. Dit kan niet ongedaan worden gemaakt.</div>
+     <button class="btn btn-groen" style="max-width:220px;" onclick="verwijderData()">Verwijder mijn data</button>
+     <div id="del-res" class="inst-res"></div>
+   </div>
+
+
+   <!-- Klas wijzigen (leerling) -->
+   <div class="inst-kaart" id="inst-blok-klas">
+     <div class="inst-titel">🏫 Mijn klas wijzigen</div>
+     <div class="inst-omschr">Zit je in een andere klas? Een wijziging moet eerst worden goedgekeurd door een moderator.</div>
+     <div id="klas-verzoek-status"></div>
+     <label class="form-lbl">Leerjaar</label>
+     <select class="form-sel" id="inst-jaar" onchange="instUpdateNiveau()"><option value="">-- Kies --</option></select>
+     <div id="inst-wrap-niv" style="display:none;">
+       <label class="form-lbl">Niveau</label>
+       <select class="form-sel" id="inst-niv" onchange="instUpdateKlas()"><option value="">-- Kies --</option></select>
+     </div>
+     <div id="inst-wrap-klas" style="display:none;">
+       <label class="form-lbl">Klas</label>
+       <select class="form-sel" id="inst-klas"><option value="">-- Kies --</option></select>
+     </div>
+     <button class="btn btn-groen" style="max-width:200px;margin-top:6px;" onclick="slaKlasOp()">Opslaan</button>
+     <div id="klas-res" class="inst-res"></div>
+   </div>
+
+
+   <!-- Route B: rolinfo -->
+   <div class="inst-kaart">
+     <div class="inst-titel">👤 Jouw rol in SafeSpeak</div>
+     <div class="inst-omschr">Hieronder zie je welke rol je hebt en welke toegang daarbij hoort.</div>
+     <div id="rol-info" style="font-size:.83rem;color:var(--slate);line-height:1.7;"></div>
+   </div>
+
+
+   <!-- Route C: cookies -->
+   <div class="inst-kaart">
+     <div class="inst-titel">🍪 Cookievoorkeuren</div>
+     <div class="inst-omschr">SafeSpeak gebruikt alleen functionele cookies voor het inloggen. Analytische cookies zijn optioneel.</div>
+     <div id="cookie-status" style="font-size:.83rem;color:var(--slate2);margin-bottom:9px;font-weight:600;"></div>
+     <div class="cookie-rij">
+       <button class="cookie-btn" id="cookie-btn-ja" onclick="setCookie(true)">✓ Toestemming geven</button>
+       <button class="cookie-btn" id="cookie-btn-nee" onclick="setCookie(false)">✗ Weigeren</button>
+     </div>
+   </div>
+
+
+   <!-- Route E: privacyrapport -->
+   <div class="inst-kaart">
+     <div class="inst-titel">🔒 Welke gegevens gebruiken wij?</div>
+     <div class="inst-omschr">SafeSpeak verwerkt zo min mogelijk persoonsgegevens.</div>
+     <div>
+       <div class="priv-rij"><span class="priv-lbl">Naam of foto</span><span class="priv-val">Nooit opgeslagen</span></div>
+       <div class="priv-rij"><span class="priv-lbl">IP-adres</span><span class="priv-val">Nooit opgeslagen</span></div>
+       <div class="priv-rij"><span class="priv-lbl">Feedbacktekst</span><span class="priv-val">Tot einde schooljaar</span></div>
+       <div class="priv-rij"><span class="priv-lbl">Anonieme alias</span><span class="priv-val">Tijdelijk, per sessie</span></div>
+       <div class="priv-rij"><span class="priv-lbl">Leerlingnummer</span><span class="priv-val">Alleen intern, nooit gedeeld</span></div>
+     </div>
+   </div>
+ </div>
+</div>
